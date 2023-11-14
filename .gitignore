@@ -1,0 +1,7 @@
+.vscode
+retries/
+tmp/
+.DS_Store
+site/
+env/
+.idea/

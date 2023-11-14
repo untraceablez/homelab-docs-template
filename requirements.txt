@@ -1,0 +1,9 @@
+mkdocs
+mkdocs-material
+mkdocs-video
+mkdocs-include-markdown-plugin
+mkdocs-codeinclude-plugin
+mkdocs-git-revision-date-localized-plugin
+markdown-toc
+mkdocs-autolinks-plugin
+mkdocs-glightbox

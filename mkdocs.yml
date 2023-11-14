@@ -1,0 +1,102 @@
+site_name: CELS IT Documentation
+repo_url: https://git.cels.anl.gov/cels-systems/user-guides
+repo_name: cels-systems/user-guides
+
+nav:
+    - Getting Started With CELS Computing: 
+      - getting-started/index.md
+      - FAQ: getting-started/faq.md
+
+copyright: Copyright &copy; 2023 Taylor Cohron
+
+theme:
+  features:
+    - content.tooltips
+  name: material
+  language: 'en'
+  logo: images/homelab-icon.png
+  favicon: 'images/favicon.ico'
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: light blue
+      accent: light blue
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: light blue
+      accent: light blue
+
+  icon:
+    repo: fontawesome/brands/git-alt
+
+  features:
+  - tabs
+  - instant
+  - search.highlight
+  - search.suggest
+  - navigation.instant
+  - navigation.tracking
+  - navigation.path
+  - navigation.indexes
+  - navigation.top
+  - navigation.footer
+  - content.code.copy
+  - content.code.annotate
+
+plugins:
+  - search
+  - glightbox
+  - mkdocs-video
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - autolinks
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+      
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://your-discord-invite-link.here
+    - icon: fontawesome/regular/envelope
+      link: mailto:your-help-email@here.com
+  homepage: https://www.yourwebsitegoeshere.com
+
+
+
+
