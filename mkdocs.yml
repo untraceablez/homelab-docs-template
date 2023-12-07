@@ -6,6 +6,32 @@ nav:
     - Getting Started: 
       - getting-started/index.md
       - FAQ: getting-started/faq.md
+    - Hardware:
+      - ARM Devices: hardware/arm-devices.md
+      - NAS: hardware/nas.md
+      - Routers: hardware/routers.md
+      - Switches: hardware/switches.md
+    - Languages:
+      - Shells:
+        - Bash: languages/shells/bash.md
+        - PowerShell: languages/shells/powershell.md
+        - ZSH: languages/shells/zsh.md
+      - Make: languages/make.md
+      - Markdown: languages/markdown.md
+      - Python: languages/python.md
+      - YAML: languages/yaml.md
+    - Networking: 
+      - DNS: networking/dns.md
+      - Firewalls: networking/firewalls.md
+      - Port Forwarding: networking/port-forwarding.md
+      - VLANs: networking/vlans.md
+    - Technologies:
+      - Ansible: technologies/ansible.md
+      - Docker: technologies/docker.md
+      - Git: technologies/git.md
+      - Kubernetes: technologies/kubernetes.md
+      - SSH: technologies/ssh.md
+      - Virtualization: technologies/virtualization.md
 
 copyright: Copyright &copy; 2023 Taylor Cohron
 
