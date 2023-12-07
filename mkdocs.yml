@@ -34,7 +34,7 @@ nav:
       - Virtualization: technologies/virtualization.md
 
 
-copyright: Copyright &copy; 2023 Taylor Cohron
+copyright: Copyright &copy; 2023 Taylor Cohron (@untraceablez)
 
 theme:
   features:
@@ -121,7 +121,9 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://your-discord-invite-link.here
     - icon: fontawesome/regular/envelope
-      link: mailto:your-help-email@here.com
-  homepage: https://www.yourwebsitegoeshere.com
+      link: mailto:taylorcohrontech@gmail.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/untraceablez/
+  homepage: https://www.taylorcohron.me
 
 
