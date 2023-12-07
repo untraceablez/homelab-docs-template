@@ -33,6 +33,7 @@ nav:
       - SSH: technologies/ssh.md
       - Virtualization: technologies/virtualization.md
 
+
 copyright: Copyright &copy; 2023 Taylor Cohron
 
 theme:
@@ -49,8 +50,8 @@ theme:
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
-      primary: light blue
-      accent: light blue
+      primary: light dracula
+      accent: light dracula
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
@@ -58,8 +59,8 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-      primary: light blue
-      accent: light blue
+      primary: light dracula
+      accent: light dracula
 
   icon:
     repo: fontawesome/brands/git-alt
@@ -122,7 +123,5 @@ extra:
     - icon: fontawesome/regular/envelope
       link: mailto:your-help-email@here.com
   homepage: https://www.yourwebsitegoeshere.com
-
-
 
 
