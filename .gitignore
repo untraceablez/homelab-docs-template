@@ -5,4 +5,4 @@ tmp/
 site/
 env/
 .idea/
-/homelab-docs
+homelab-docs/

@@ -237,8 +237,8 @@ As you go through mkdocs, you'll find mkdocs has a lot of built-in extensions th
 As they're found, useful pages will be added here for our collective reference:
 
 * A list of all supported code highlight options (lexers):  
-    * https://pygments.org/docs/lexers/#  
+    * [Pygments - Lexers](https://pygments.org/docs/lexers/#)  
 
 * A markdown table generator (generates an empty table):  
-    * https://www.tablesgenerator.com/markdown_tables
+    * [Markdown Table Generator](https://www.tablesgenerator.com/markdown_tables)
 
