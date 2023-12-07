@@ -1,6 +1,4 @@
-# Getting Started
-
-## Table of Contents: 
+# Hello World,
 
 My purpose is to be a template. **OH MY GOD**
 
