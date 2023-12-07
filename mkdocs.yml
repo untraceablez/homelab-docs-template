@@ -1,6 +1,6 @@
 site_name: Homelab Documentation
-repo_url: https://git.cels.anl.gov/cels-systems/user-guides
-repo_name: cels-systems/user-guides
+repo_url: https://github.com/untraceablez/homelab-docs-template/
+repo_name: untraceablez/homelab-docs-template/
 
 nav:
     - Getting Started: 
