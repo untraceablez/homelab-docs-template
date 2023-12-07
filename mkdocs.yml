@@ -1,9 +1,9 @@
-site_name: CELS IT Documentation
+site_name: Homelab Documentation
 repo_url: https://git.cels.anl.gov/cels-systems/user-guides
 repo_name: cels-systems/user-guides
 
 nav:
-    - Getting Started With CELS Computing: 
+    - Getting Started: 
       - getting-started/index.md
       - FAQ: getting-started/faq.md
 
