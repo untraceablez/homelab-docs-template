@@ -4,9 +4,13 @@
 
 * [How to Contribute](#how-to-contribute)
     * [Requirements](#requirements)
-        * [Python](#python)
-        * [Git](#git)
-        * [IDE](#ide)
+        * [Universal Requirements](#universal-requirements)
+            * [Python](#python)
+            * [Git](#git)
+            * [IDE](#ide)
+        * [macOS](#macos-requirements)
+        * [Windows](#windows-requirements)
+        * [Linux](#linux-requirements)
 * [First Time Setup](#first-time-setup)
     * [Cloning with Git](#cloning-with-git)
         * [HTTPS](#HTTPS)
@@ -23,7 +27,9 @@
 
 ### Requirements
 
-#### Python
+#### Universal Requirements
+
+##### Python
 
 The only requirement to build documentation locally is having a Python 3 environment, with at least Python **3.6** installed. You can verify what version of Python is installed with this command:
 
@@ -60,7 +66,7 @@ Navigate to the [Python Download Page](https://www.python.org/downloads/) and se
 ```powershell  
 winget install -e --id Python.Python.3.10
 ```
-#### Git
+##### Git
 
 To install Git, follow the instructions below for your OS:  
 
@@ -89,7 +95,7 @@ Navigate to the [Git Download Page](https://git-scm.com/download/win) and select
 winget install --id Git.Git -e --source winget
 ```
 
-#### IDE
+##### IDE
 
 Use of an IDE to preview your Markdown side-by-side with your documentation is best, allows you to confirm proper formatting in real time. IDEs are a personal preference, and as long as the IDE supports Markdown and YAML syntax, you'll be fine, but [Visual Studio Code](https://code.visualstudio.com/) is a solid all-rounder to use. Others are below. To note, XCode is free for *this* kind of coding, a paid Apple Developer account is only required for iOS/iPadOS related programming. 
 
@@ -100,6 +106,34 @@ Use of an IDE to preview your Markdown side-by-side with your documentation is b
 * *$$$$* [Nova (**macOS only**)](https://nova.app/)
 * Free [Notepad++ (**Windows only**)](https://notepad-plus-plus.org/)
 * Free [Eclipse IDE](https://www.eclipse.org/ide/)
+
+#### macOS Requirements
+
+##### Brew
+
+Brew is a very useful package manager for macOS that is necessary to install the [Universal Requirements](#universal-requirements). To install Brew, simply paste the following command into Terminal: 
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### Windows Requirements
+
+##### Chocolatey
+
+For Windows you'll need to install [Chocolatey Package Manager](https://chocolatey.org/) in order to get the other dependencies in this section, and it can be used as an alternative way to install the [Universal Requirements](#universal-requirements). Chocolatey is a very useful package manager for Windows in general as well. To install Chocolatey, simply follow their instructions, which can be found [here](https://chocolatey.org/install).  
+
+##### Make
+
+Simply run this command:
+
+```powershell
+choco install make
+```
+
+#### Linux Requirements
+
+At this time, there are no requirements specific to Linux. All hail to the 🐧!
 
 ### First Time Setup
 
@@ -130,16 +164,22 @@ This is the recommended method and uses HTTPS to grab the repo.
 
 ##### HTTPS
 ```bash  
-git clone UPDATE-ME
+git clone https://github.com/untraceablez/homelab-docs-template.git
 ```
 
 ##### SSH
 
 Using Git's SSH protocol. Make sure you add your SSH public key to your GitHub account:
 ```bash
-git clone UPDATE-ME
+git clone git@github.com:untraceablez/homelab-docs-template.git
 ```
 
+##### GitHub CLI
+
+If you have GitHub CLI, it's even easier!  
+```github
+gh repo clone untraceablez/homelab-docs-template
+```
 
 #### Installing mkdocs
 
