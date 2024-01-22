@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Check if python3 is installed
+python3 --version >/dev/null 2>&1
+if [[ $? -ne 0 ]]; then
+  echo "Python3 not found. Installing..."
+  # Package manager detection and installation logic
+  if [[ $(command -v yum) ]]; then
+    yum install -y python3
+  elif [[ $(command -v apt) ]]; then
+    apt install -y python3
+  elif [[ $(command -v zypper) ]]; then
+    zypper install -y python3
+  else
+    echo "Unknown package manager. Please install python3 manually."
+    exit 1
+  fi
+  echo "Python3 installed successfully."
+fi
+
+# Create a virtual environment named "homelab-docs"
+python3 -m venv homelab-docs
+echo "Virtual environment 'homelab-docs' created."
+
+# Activate the virtual environment (optional)
+source homelab-docs/bin/activate
+
+# (Optional) Additional tasks to perform within the virtual environment, 
+# such as installing required libraries
+
+echo "Virtual environment activated. Ready to work!"

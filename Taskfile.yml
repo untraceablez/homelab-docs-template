@@ -1,0 +1,16 @@
+version: "3"
+
+includes:
+  build: ./Taskfile_{{OS}}.yml
+
+tasks:
+  build:
+    cmds:
+      - echo "Checking for Python and creating virtual environment..."
+      - ./Taskfile_{{OS}}.yml
+      - echo "Activating virtual environment..."
+      - source homelab-docs/bin/activate
+      - echo "Installing requirements..."
+      - pip install -r requirements.txt
+      - echo "Done! Simply run 'task docs' to get started".
+      - echo "For questions and issues, visit https://github.com/untraceablez/homelab-docs-template/"

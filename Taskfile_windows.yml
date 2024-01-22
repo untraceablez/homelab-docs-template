@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  check_python:
+    cmds:
+      - where.exe python3
+    exit_codes:
+      0:
+        cmds:
+          - python3 -m venv homelab-docs
+      1:
+        cmds:
+          - |
+            if ! choco list -iname chocolatey > NUL 2>&1 (
+              echo "Chocolatey isn't installed. Would you like to install it? (y/n)"
+              read answer
+              if [[ "$answer" == "y" ]]; then
+                choco install -y chocolatey
+              else
+                echo "Skipping Python installation."
+                exit 1
+              fi
+            )
+          - choco install python3 -y
+          - python3 -m venv homelab-docs
+          - echo "Python 3 and virtual environment created successfully!"
+

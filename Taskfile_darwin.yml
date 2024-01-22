@@ -1,0 +1,28 @@
+version: "3"
+
+tasks:
+  create-venv:
+    deps:
+      - check-python
+
+    cmds:
+      - python3 -m venv homelab-docs
+
+  check-python:
+    cmds:
+      - -p python3 --version | grep '3'
+        # Ensure `grep` returns 0 (success) only if Python 3 is found
+      - if [ $? -ne 0 ]; then
+          echo "Python 3 not found.";
+          if ! command -v brew &> /dev/null; then
+            echo "brew package manager not found. Would you like to install brew? (y/n)";
+            read -r answer;
+            if [[ $answer =~ ^[Yy]$ ]]; then
+              /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            fi;
+          fi;
+          if command -v brew &> /dev/null; then
+            brew install python3;
+          fi;
+        fi;
+
