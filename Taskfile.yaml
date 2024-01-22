@@ -1,0 +1,78 @@
+version: "3"
+
+tasks:
+  win-python-version:
+    platforms: [windows/amd64]
+    cmds:
+      - powershell -c "where.exe python3"
+    success:
+      - msg: "Python 3 already installed."
+      - exit: 0
+    fail:
+      - msg: "Python 3 not found. Installing..."
+      - task: install-python-windows
+  unix-python-version:
+    platforms: [linux/amd64, darwin]
+    cmds:
+      - bash -c "command -v python3 >/dev/null || true"
+    success:
+      - msg: "Python 3 already installed."
+      - exit: 0
+    fail:
+      - msg: "Python 3 not found. Installing..."
+      - task: install-python-macos
+      - task: install-python-linux
+  # Install Python on Windows using Chocolatey
+  install-python-windows:
+    if: "{{ $.OS == 'windows' }}"
+    cmds:
+      - choco install python3
+  # Install Python on macOS using Homebrew
+  install-python-macos:
+    if: "{{ $.OS == 'darwin' }}"
+    cmds:
+      - brew install python3
+  # Install Python on Linux using APT or Yum
+  install-python-linux:
+    if: "{{ $.OS == 'linux' }}"
+    any:
+      # Use APT on Debian-based distros
+      apt:
+        cmds:
+          - sudo apt install -y python3 python3-pip
+      # Use Yum on RHEL-based distros
+      yum:
+        cmds:
+          - sudo yum install -y python3 python3-pip
+  # Create and activate virtual environment
+  win-venv:
+    platforms: [windows/amd64]
+    cmds:
+      - powershell -c "if (-not (Test-Path -Path '{{.USER_HOME}}\.python')) { md '{{.USER_HOME}}\.python' }"
+      - powershell -c "python.exe -m venv C:\Users\$env:USERPROFILE\.python\homelab-docs"
+      - powershell -c "call $env:USERPROFILE\.python\homelab-docs\Scripts\activate"
+  unix-venv:
+    platforms: [linux/amd64, darwin]
+    cmds:
+      - mkdir -p ~/.python
+      - python3 -m venv ~/.python/homelab-docs
+      - source ~/.python/homelab-docs/bin/activate
+  # Install requirements from requirements.txt
+  install-requirements:
+    deps:
+      - task: win-venv
+      - task: unix-venv
+    cmds:
+      - pip install -r requirements.txt
+  # Define default task to run all steps
+  default:
+    cmds:
+      - task: win-python-version
+      - task: unix-python-version
+      - task: win-venv
+      - task: unix-venv
+      - task: install-requirements
+# Additional options
+msg:
+  duration: 1
+  silent: true

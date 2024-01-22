@@ -45,8 +45,6 @@ If you don't have Python installed, follow the commands below for your OS:
 brew install python3  
 ```  
 
-If you don't have brew, you can install it following the instructions [here](https://brew.sh/).
-
 **Linux  (assuming Debian-based)**  
 You likely already have Python3 installed by default, but if not, run this:
 ```bash  
@@ -61,11 +59,12 @@ sudo dnf install git -y
 
 **Windows**  
 
-Navigate to the [Python Download Page](https://www.python.org/downloads/) and select the **latest *stable* release**. Alternatively, if you have [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) you can run the following command in PowerShell (make sure to run as administrator)
+Navigate to the [Python Download Page](https://www.python.org/downloads/) and select the **latest *stable* release**. Alternatively, if you can run the following command to install it with Chocolatey: 
 
-```powershell  
-winget install -e --id Python.Python.3.10
+```PowerShell
+choco install python3
 ```
+
 ##### Git
 
 To install Git, follow the instructions below for your OS:  
@@ -91,8 +90,8 @@ sudo dnf install git -y
 
 Navigate to the [Git Download Page](https://git-scm.com/download/win) and select the **64-bit Git for Windows Setup** installer. Alternatively, if you have [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) you can run the following command in PowerShell (make sure to run as administrator)
 
-```powershell  
-winget install --id Git.Git -e --source winget
+```PowerShell  
+choco install git
 ```
 
 ##### IDE
@@ -111,7 +110,7 @@ Use of an IDE to preview your Markdown side-by-side with your documentation is b
 
 ##### Brew
 
-Brew is a very useful package manager for macOS that is necessary to install the [Universal Requirements](#universal-requirements). To install Brew, simply paste the following command into Terminal: 
+The preferred package manager for macOS is [brew](https://brew.sh/). To install brew, simply run the following script in Terminal: 
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -119,16 +118,32 @@ Brew is a very useful package manager for macOS that is necessary to install the
 
 #### Windows Requirements
 
-##### Chocolatey
+[Chocolatey](https://chocolatey.org/install#individual) is the preferred package manager for Windows, although you could also use [Scoop](https://scoop.sh/) or Microsoft's own [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget). 
 
-For Windows you'll need to install [Chocolatey Package Manager](https://chocolatey.org/) in order to get the other dependencies in this section, and it can be used as an alternative way to install the [Universal Requirements](#universal-requirements). Chocolatey is a very useful package manager for Windows in general as well. To install Chocolatey, simply follow their instructions, which can be found [here](https://chocolatey.org/install).  
+To install Chocolatey, you'll need to open **PowerShell** as an administrator and run the following command: 
 
-##### Make
+```PowerShell
+Get-ExecutionPolicy
+```
+
+If it returns `Restricted` then run this command: 
+
+```PowerShell
+Set-ExecutionPolicy AllSigned
+```
+
+You can then run this command and install Chocolatey: 
+
+```PowerShell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+``` 
+
+##### Task
 
 Simply run this command:
 
 ```powershell
-choco install make
+choco install go-task
 ```
 
 #### Linux Requirements
@@ -186,7 +201,7 @@ gh repo clone untraceablez/homelab-docs-template
 To install `mkdocs` in the current environment, just run this command:  
 
 ```bash
-make first-install  
+task first-install  
 ```
 
 This command will do the following: 
@@ -214,7 +229,7 @@ After making **any** changes to your local branch, run `mkdocs build` it will ve
 
 Once mkdocs build works, you can run `mkdocs serve` in order to get a live preview of your site. If you're only editing *existing* text, you can leave this running while you make changes. The process **will break** if you change the ```mkdocs.yml``` file or **add** or **delete** files under `/docs`.  In order to view the site in a browser (Chromium-based preferably), navigate to your [localhost](http://127.0.0.1:8000). It should always be presented by `mkdocs serve` as http://127.0.0.1:8000. 
 
-*or*, if you're feeling lazy, you can just run **`make`** which will always run both of these commands for you:  
+*or*, if you're feeling lazy, you can just run **`task docs`** which will always run both of these commands for you:  
 
 ```bash
 mkdocs build
