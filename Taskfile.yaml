@@ -49,7 +49,7 @@ tasks:
     platforms: [windows/amd64]
     cmds:
       - powershell -c "if (-not (Test-Path -Path '{{.USER_HOME}}\.python')) { md '{{.USER_HOME}}\.python' }"
-      - powershell -c "python.exe -m venv C:\Users\$env:USERPROFILE\.python\homelab-docs"
+      - powershell -c "python.exe -m venv $($env:USERPROFILE).python\homelab-docs"
       - powershell -c "call $env:USERPROFILE\.python\homelab-docs\Scripts\activate"
   unix-venv:
     platforms: [linux/amd64, darwin]
