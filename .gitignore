@@ -6,3 +6,4 @@ site/
 env/
 .idea/
 homelab-docs/
+.python/
